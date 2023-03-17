@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산책게시판 미니프로필</title>
+     <!-- JavaScript Bundle with Popper -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+     <!-- CSS only -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    </head>
+<style>
+    .profile{
+        display: flex;
+        justify-content: center;
+    }
+    .card{
+        margin-right: 50px;
+        border-radius: 30px;
+    }
+    .card-img{
+        width: 10%;
+        height: 10%;    
+    }
+    .card-title{
+        display: inline;
+        font-size: 100%;
+    }
+    .card-subtitle{
+        display: flex;
+        justify-content: center;
+        font-size: small;
+    }
+    .card-content{
+        border: 1px solid black;
+        border-radius: 20px;
+        width: 13rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .card-content p{
+        font-size: 10px;
+        padding: 10px 0px 10px 10px;
+    }
+    .card-thumb, .card-heart{
+        width: 10%;
+        height: 10%;
+        cursor: pointer;
+    }
+    .card-thumb2{
+        width: 10%;
+        height: 10%;
+        cursor: pointer
+    }
+    .card-footer{
+        background-color: white;
+        border: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .thumb-number, .heart-number{
+        font-size: 0.6em;
+        margin-left: -25px;
+    }
+</style>
+<body>
+    
+    <div class="profile">
+        <div class="card" style="width: 15rem; height: 300px">
+            <div class="card-body">
+            <img class="card-img" src="resources/img/분홍발자국.png">   
+            <span class="card-title">또오개냥</span> 
+            <span class="card-subtitle mb-2 text-muted">함께 산책할 친구를 구합니다</span>
+            <hr>
+            <div class="card-content">
+                    <p> 산책로 지역 : </p>
+                    <p> 반려견 정보 : </p>
+                    <p> 유의사항 : </p>
+            </div>
+            <div class="card-footer">
+                    <img class="card-thumb" src="resources/img/빈 추천.png">
+                    <span class="thumb-number">추천수</span>
+                    <img class="card-heart" src="resources/img/빈하트.png"><sapn class="heart-number">참여자수</sapn>
+            </div>               
+            </div>
+        </div>
+
+        <div class="card" style="width: 15rem; height: 300px">
+            <div class="card-body">
+            <img class="card-img" src="resources/img/분홍발자국.png">   
+            <span class="card-title">또오개냥</span> 
+            <span class="card-subtitle mb-2 text-muted">함께 산책할 친구를 구합니다</span>
+            <hr>
+            <div class="card-content">
+                    <p> 산책로 지역 : </p>
+                    <p> 반려견 정보 : </p>
+                    <p> 유의사항 : </p>
+            </div>
+            <div class="card-footer">
+                    <img class="card-thumb" src="resources/img/빈 추천.png"><span class="thumb-number">추천수</span>
+                    <img class="card-heart" src="resources/img/빈하트.png"><sapn class="heart-number">참여자수</sapn>
+            </div>               
+            </div>
+        </div>
+
+        <div class="card" style="width: 15rem; height: 300px">
+            <div class="card-body">
+            <img class="card-img" src="resources/img/분홍발자국.png">   
+            <span class="card-title">또오개냥</span> 
+            <span class="card-subtitle mb-2 text-muted">함께 산책할 친구를 구합니다</span>
+            <hr>
+            <div class="card-content">
+                    <p> 산책로 지역 : </p>
+                    <p> 반려견 정보 : </p>
+                    <p> 유의사항 : </p>
+            </div>
+            <div class="card-footer">
+                    <img class="card-thumb" src="resources/img/빈 추천.png"><span class="thumb-number">추천수</span>
+                    <img class="card-heart" src="resources/img/빈하트.png"><sapn class="heart-number">참여자수</sapn>
+            </div>               
+            </div>
+        </div>
+    </div> 
+
+    <script>
+        $(function(){
+            
+            let num = 0;
+            $(".card-thumb").click(function(){
+                if(num == 0){
+                    $(this).attr("src", "resources/img/꽉찬추천.png");
+                    num = 1;
+                }else{
+                    $(this).attr("src","resources/img/빈 추천.png");
+                    num =0;
+                }
+            })
+
+            let num1 = 0;
+            $(".card-heart").click(function(){
+                if(num1 == 0){
+                    $(this).attr("src", "resources/img/꽉찬하트.png");
+                    num1 = 1;
+                }else{
+                    $(this).attr("src","resources/img/빈하트.png");
+                    num1 = 0;
+                }
+            })
+        })
+    </script>
+    
+
+
+
+
+
+
+
+    
+</body>
+</html>
