@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https: //fonts.googleapis.com/css2? family= Noto+Sans+KR & display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Noto+Serif:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <style>
+        #container {
+            position: relative;
+        }
+
+        .items {
+            border: 1px solid red;
+            margin: 0 auto;
+            width: 85%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .active {
+            display: flex;
+            height: 600px;
+            width: 900px;
+            color: white;
+            position: relative;
+        }
+
+        button,
+        button:active,
+        button:focus {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: none;
+            background-color: white;
+            box-shadow: 0px 0px 3px rgb(209, 202, 202);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .next {
+            right: 150px;
+            background-image: url(resources/img/KakaoTalk_20230320_141959451.png);
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            
+        }
+        .prev{
+            left: 150px;
+            background-image: url(resources/img/KakaoTalk_20230320_141959518.png);
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+        .stepper {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(218, 214, 214);
+            margin: 0 6px;
+        }
+
+        .active-step {
+            background-color: darkgray;
+        }
+
+        .active>div {
+            width: 35%;
+            height: 55%;
+            margin: 15px
+        }
+
+        .picture{
+            border: 1px solid black;
+            border-radius: 30px;
+            background-image: url(resources/image2/animal1.gif);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 150px;
+            height: 300px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <button class="prev"></button>
+        <div class="items">
+            <div class="item active">
+                <div class="picture">
+                    
+                </div>
+                <div class="picture"></div>
+                <div class="picture"></div>
+            </div>
+            <div class="item">
+                <div class="picture"></div>
+                <div class="picture"></div>
+                <div class="picture"></div>
+            </div>
+            <div class="item">THREE</div>
+            <div class="item">FOUR</div>
+            <div class="item">FIVE</div>
+        </div>
+        <div class="stepper">
+            <div class="step active-step"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+            <div class="step"></div>
+        </div>
+        <button class="next"></button>
+    </div>
+
+    <script>
+        let curPos = 0;
+
+        function prev() {
+            if (curPos > 0) {
+                $("button").removeAttr("disabled")
+
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".item").hide();
+                curPos -= 1;
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".active").fadeIn(800);
+            }
+            if (curPos == 0) {
+                $(".prev")[0].setAttribute("disabled", 'true')
+            }
+        }
+
+        function next() {
+            if (curPos < 4) {
+                $("button").removeAttr("disabled")
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".item").hide();
+                curPos += 1;
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".active").fadeIn(800);
+            }
+            if (curPos == 4) {
+                $(".next")[0].setAttribute("disabled", 'true')
+            }
+        }
+        function init() {
+            $(".item").hide()
+            $(".active").show()
+            $(".prev").click(prev)
+            $(".next").click(next)
+        }
+        $(document).ready(function () {
+            init();
+        })
+
+    
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
