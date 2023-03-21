@@ -186,17 +186,17 @@
             
             <hr>
 
-            <img src="resources/img/메이트소개글쓰기.png" height="45">
+            <img src="resources/img/메이트소개글쓰기.png" height="65">
             <div class="write-content">
 
             </div>
 
-            <img src="resources/img/메이트 위치 정하기.png" height="48">
+            <img src="resources/img/메이트 위치 정하기.png" height="68">
             <div class="write-location">
 
             </div>
 
-            <img src="resources/img/첨부한 사진 보기.png" height="50">
+            <img src="resources/img/첨부한 사진 보기.png" height="75">
             <div class="write-picture">
               <div id="container">
                 <button class="prev btn-pic"></button>
@@ -231,7 +231,7 @@
             
             
             
-            <img src="resources/img/댓글.png" height="50">
+            <img src="resources/img/댓글.png" height="70">
             <div class="write-reply">
                 <table border="1">
                     <thead>
@@ -283,7 +283,7 @@
 
       function prev() {
           if (curPos > 0) {
-              $("button").removeAttr("disabled")
+              $(".btn-apply").removeAttr("disabled")
 
               $($(".item")[curPos]).toggleClass("active")
               $($(".step")[curPos]).toggleClass("active-step")
@@ -300,7 +300,7 @@
 
       function next() {
           if (curPos < 4) {
-              $("button").removeAttr("disabled")
+              $(".btn-reset").removeAttr("disabled")
               $($(".item")[curPos]).toggleClass("active")
               $($(".step")[curPos]).toggleClass("active-step")
               $(".item").hide();

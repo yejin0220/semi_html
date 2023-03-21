@@ -36,7 +36,7 @@
     .card-content{
         border: 1px solid black;
         border-radius: 20px;
-        width: 13rem;
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -134,9 +134,11 @@
             $(".card-thumb").click(function(){
                 if(num == 0){
                     $(this).attr("src", "resources/img/꽉찬 추천.png");
+                    $(".thumb-number").text(1);
                     num = 1;
                 }else{
                     $(this).attr("src","resources/img/빈 추천.png");
+                    $(".thumb-number").text("추천수");
                     num =0;
                 }
             })
@@ -151,7 +153,16 @@
                     num1 = 0;
                 }
             })
+        
+        
+        
+        
+        
+        
+        
+        
         })
+
     </script>
     
 

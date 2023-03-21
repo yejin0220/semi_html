@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https: //fonts.googleapis.com/css2? family= Noto+Sans+KR & display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Noto+Serif:wght@700&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>산책메이트 게시글 보기</title>
+    <style>
+     .wrap{
+        /* position: relative; */
+        width: 100%;
+        height: 100%;
+     }
+    .content_name{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .content2{
+        line-height: 2;
+        text-align: center;
+    }
+    .walk-write{
+        /* position: absolute; */
+        margin: 0 auto;
+        border: 1px solid black;
+        width: 70%;
+        height: 70rem;
+        left: 13.5%;
+    }
+    .walk-name{
+        border: 1px solid red;
+        width: 95%;
+
+        margin: 8px auto;
+    }
+    .walk-name span{
+        border: 1px solid black;
+        
+    }
+    .write-content, .write-location, .write-picture{
+        border: 1px solid blue;
+        width: 95%;
+        height: 11rem;
+        margin: 0 auto;
+    }
+    .btn-div{
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .apply{margin-right: 50px;}
+    
+    /*슬라이드 style*/
+    #walk-picture {
+            position: relative;
+        }
+
+        .items {
+            border: 1px solid red;
+            margin: 0 auto;
+            width: 85%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .active {
+            display: flex;
+            height: 600px;
+            width: 900px;
+            color: white;
+            position: relative;
+        }
+        .btn-pic,
+        button:active,
+        button:focus {
+            position: absolute;
+            top: 45%;
+            transform: translateY(-50%);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: none;
+            background-color: white;
+            box-shadow: 0px 0px 3px rgb(209, 202, 202);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .next {
+            right: 150px;
+            background-image: url(resources/img/KakaoTalk_20230320_141959451.png);
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            
+        }
+        .prev{
+            left: 150px;
+            background-image: url(resources/img/KakaoTalk_20230320_141959518.png);
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+        .stepper {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .step {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(218, 214, 214);
+            margin: 0 6px;
+        }
+
+        .active-step {
+            background-color: darkgray;
+        }
+
+        .active>div {
+            width: 35%;
+            height: 55%;
+            margin: 15px
+        }
+
+        .picture{
+            border: 1px solid black;
+            border-radius: 30px;
+            background-image: url(resources/image2/animal1.gif);
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 150px;
+            height: 300px;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="content1">
+            <div class="content_name">
+            <img src="resources/img/왼쪽강아지.png" style="width: 40px; height: 35px;">
+            <h1>&nbsp;같이 걷개&nbsp;</h1>
+            <img src="resources/img/오른쪽강아지.png" style="width:40px; height:40px;">
+            </div>
+        </div>
+        
+            
+        <hr id="line">
+        <br>
+        <div class="content2">
+            <p>산책메이트와 함께 특별한 시간을 만들어보세요 <br> 
+            반려인도 반려동물도 내가 원하는 동네의 다양한 친구들을 만날 수 있어요</p>
+        </div>
+        
+        <br><br>
+
+        <div class="walk-content3">
+            
+            <div class="walk-write">
+                <div class="walk-name">
+                  <span>선택지역</span>
+                  <span>선택지역</span>
+                  <span>게시글 제목</span>
+                </div>
+                
+                <hr>
+    
+                <img src="resources/img/소개글보기-.png" height="60">
+                <div class="write-content">
+    
+                </div>
+    
+                <img src="resources/img/메이트만날장소-.png" height="63">
+                <div class="write-location">
+    
+                </div>
+    
+                <img src="resources/img/사진구경하기-.png" height="60">
+                <div id="walk-picture">
+                    <div class="prev btn-pic"></div>
+                    <div class="items">
+                        <div class="item active">
+                            <div class="picture">
+                                
+                            </div>
+                            <div class="picture"></div>
+                            <div class="picture"></div>
+                        </div>
+                        <div class="item">
+                            <div class="picture"></div>
+                            <div class="picture"></div>
+                            <div class="picture"></div>
+                        </div>
+                        <div class="item">THREE</div>
+                        <div class="item">FOUR</div>
+                        <div class="item">FIVE</div>
+                    </div>
+                    <div class="stepper">
+                        <div class="step active-step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div>
+                    <div class="next btn-pic"></div>
+                </div>
+                
+                
+                <br>
+                
+                <div class="reply-div" style="border:1px solid red">
+                    
+                    
+    
+                </div>
+                
+            </div>
+
+
+            <div class="btn-div">
+                <button class="apply" onclick="apply();" >신청하기</button>
+                <button type="reset" class="cancel">취소하기</button>
+            </div>
+
+  
+        </div>
+
+
+    </div>
+    <script>
+        let curPos = 0;
+
+        function prev() {
+            if (curPos > 0) {
+                $(".btn-pic").removeAttr("disabled")
+
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".item").hide();
+                curPos -= 1;
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".active").fadeIn(800);
+            }
+            if (curPos == 0) {
+                $(".btn-pic")[0].setAttribute("disabled", 'true')
+            }
+        }
+
+        function next() {
+            if (curPos < 4) {
+                $(".btn-pic").removeAttr("disabled")
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".item").hide();
+                curPos += 1;
+                $($(".item")[curPos]).toggleClass("active")
+                $($(".step")[curPos]).toggleClass("active-step")
+                $(".active").fadeIn(800);
+            }
+            if (curPos == 4) {
+                $(".btn-pic")[0].setAttribute("disabled", 'true')
+            }
+        }
+        function init() {
+            $(".item").hide()
+            $(".active").show()
+            $(".prev").click(prev)
+            $(".next").click(next)
+        }
+        $(document).ready(function () {
+            init();
+        })
+    </script>
+        
+    <script>
+        function apply(){
+            $(".apply").click(function(){
+                confirm("산책메이트 신청을 하시겠습니까.?");
+                
+                // if(result){
+                //     alert("신청이 완료되었습니다. 수락대기");
+                // }else{
+                //     alert("신청이 취소되었습니다.")
+                // }   
+            })
+        }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
