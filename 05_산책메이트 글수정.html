@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <title>Document</title>
     <style>
       .wrap{
@@ -25,44 +26,53 @@
         margin: 0 auto;
         border: 1px solid black;
         width: 70%;
-        height: 80rem;
+      
         left: 13.5%;
       }
       .walk-name{
         border: 1px solid red;
         width: 95%;
+        display: inline-flex;
+        margin : 8px 0px 0px 12px;
       }
-      span{
-        font-size: small;
-        border: 1px solid black;
-      }
-      .write-content, .write-location, .write-reply{
+      .content3{
+        display: flex;
+        justify-content: space-around;
+    }
+    .location{
+        display: flex;
+    }
+    .search1, .search2{
+       height: 1.5rem;
+       border-radius: 7px;
+       border: 1px solid lightblue;
+    }
+      .write-content, .write-location, .write-picture{
         border: 1px solid blue;
         width: 95%;
-        height: 10rem;
+        height: 13rem;
         margin: 0 auto;
       }
-      .write-picture{
-        border: 1px solid blue;
-      }
+
       img{
         margin-top: 20px;
       }
      .btn-div{
       display: flex;
       justify-content: center;
+      margin-top: 30px;
      }
-     .btn-apply{
+     .btn-upload{
         margin-right: 50px;
      }
 
-     /*사진-슬라이드 style*/
-     #container {
+     /*사진보여주기 style*/
+     #walk-picture {
             position: relative;
         }
 
         .items {
-            border: 1px solid red;
+            border: 0px solid red;
             margin: 0 auto;
             width: 85%;
             height: 450px;
@@ -86,10 +96,11 @@
             color: white;
             position: relative;
         }
-
         .btn-pic,
-        button:active,
-        button:focus {
+        .prev:active,
+        .prev:focus,
+        .next:active,
+        .next:focus {
             position: absolute;
             top: 45%;
             transform: translateY(-50%);
@@ -118,6 +129,7 @@
             background-size: 20px;
             background-repeat: no-repeat;
             background-position: 50% 50%;
+            z-index: 1;
         }
         .stepper {
             margin-top: 15px;
@@ -175,90 +187,90 @@
       
       <br><br>
 
+      <!-- 게시글 수정시 작성자가 선택한 지역카테고리와 제목,내용들이 입력되어있어야함 -->
       <div class="walk-content3">
         <form action="" method="post">
           <div class="walk-write">
             <div class="walk-name">
-              <span>선택지역</span>
-              <span>선택지역</span>
+              <div class="search_box">
+                <select name="search1" id="" onchange="categoryChange(this)" class="search1">
+                  <option value>광역시/도 선택</option>
+                  <option value="general01">강원도</option>
+                  <option value="general02">경기도</option>
+                  <option value="general03">경상남도</option>
+                  <option value="general04">경상북도</option>
+                  <option value="general05">광주광역시</option>
+                  <option value="general06">대구광역시</option>
+                  <option value="general07">대전광역시</option>
+                  <option value="general08">부산광역시</option>
+                  <option value="general09">서울특별시</option>
+                  <option value="general10">울산광역시</option>
+                  <option value="general11">인천광역시</option>
+                  <option value="general12">전라남도</option>
+                  <option value="general13">전라북도</option>
+                  <option value="general14">제주도</option>
+                  <option value="general15">충청남도</option>
+                  <option value="general16">충청북도</option>
+                </select>
+              </div>
+              <div class="search_box">
+                  <select name="search2" id="state" class="search2">
+                      <option>군/구 선택</option>
+                  </select>
+              </div>
               <input type="text" required placeholder="게시글 제목을 입력하세요">
             </div>
             
+
             <hr>
 
-            <img src="resources/img/메이트소개글쓰기.png" height="65">
+            <img src="resources/img/메이트소개글쓰기.png" height="45">
             <div class="write-content">
-
+  
             </div>
 
-            <img src="resources/img/메이트 위치 정하기.png" height="68">
+            <img src="resources/img/메이트 위치 정하기.png" height="48">
             <div class="write-location">
 
             </div>
 
-            <img src="resources/img/첨부한 사진 보기.png" height="75">
-            <div class="write-picture">
-              <div id="container">
-                <button class="prev btn-pic"></button>
-                <div class="items">
-                    <div class="item active">
-                        <div class="picture">
-                            
-                        </div>
-                        <div class="picture"></div>
-                        <div class="picture"></div>
-                    </div>
-                    <div class="item">
-                        <div class="picture"></div>
-                        <div class="picture"></div>
-                        <div class="picture"></div>
-                    </div>
-                    <div class="item">THREE</div>
-                    <div class="item">FOUR</div>
-                    <div class="item">FIVE</div>
-                </div>
-                <div class="stepper">
-                    <div class="step active-step"></div>
-                    <div class="step"></div>
-                    <div class="step"></div>
-                    <div class="step"></div>
-                    <div class="step"></div>
-                </div>
-                <button class="next btn-pic"></button>
-            </div>
-            </div>
+            <img src="resources/img/사진첨부하기.png" height="50">
+            <div id="walk-picture">
+              <div class="prev btn-pic"></div>
+              <div class="items">
+                  <div class="item active">
+                      <div class="picture">
+                          
+                      </div>
+                      <div class="picture"></div>
+                      <div class="picture"></div>
+                  </div>
+                  <div class="item">
+                      <div class="picture"></div>
+                      <div class="picture"></div>
+                      <div class="picture"></div>
+                  </div>
+                  <div class="item">THREE</div>
+                  <div class="item">FOUR</div>
+                  <div class="item">FIVE</div>
+              </div>
+              <div class="stepper">
+                  <div class="step active-step"></div>
+                  <div class="step"></div>
+                  <div class="step"></div>
+                  <div class="step"></div>
+                  <div class="step"></div>
+              </div>
+              <div class="next btn-pic"></div>
+          </div>
+            <input type="file" value="사진선택">
             
-            
-            
-            
-            <img src="resources/img/댓글.png" height="70">
-            <div class="write-reply">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <td>작성자</td>
-                            <td>댓글내용</td>
-                            <td>작성자</td>
-                        </tr>
-                   </thead>
-                   <tbody>
-                       <tr>
-                        <th>댓글작성</th>
-                         <td>
-                             <textarea id="replyContent" cols="30" rows="3" style="resize:none;"></textarea>
-                         </td>
-                         <td>
-                             <button onclick="insertReply();">댓글등록</button>
-                         </td>
-                     </tr>
-                   </tbody>
-               </table>
-
-            </div>
+            <br>
+            <div class="block" style="height: 10px;"></div>
             
           </div>
           <div class="btn-div">
-            <button type="button" class="btn-apply">신청하기</button>
+            <button type="button" class="btn-upload" >수정하기</button>
             <button type="reset" class="btn-reset">취소하기</button>
           </div>
         </form>
@@ -269,96 +281,9 @@
 
 
 
-
-
-
-
-
-
     </div>
-
-
-    <script>
-      let curPos = 0;
-
-      function prev() {
-          if (curPos > 0) {
-              $(".btn-apply").removeAttr("disabled")
-
-              $($(".item")[curPos]).toggleClass("active")
-              $($(".step")[curPos]).toggleClass("active-step")
-              $(".item").hide();
-              curPos -= 1;
-              $($(".item")[curPos]).toggleClass("active")
-              $($(".step")[curPos]).toggleClass("active-step")
-              $(".active").fadeIn(800);
-          }
-          if (curPos == 0) {
-              $(".prev")[0].setAttribute("disabled", 'true')
-          }
-      }
-
-      function next() {
-          if (curPos < 4) {
-              $(".btn-reset").removeAttr("disabled")
-              $($(".item")[curPos]).toggleClass("active")
-              $($(".step")[curPos]).toggleClass("active-step")
-              $(".item").hide();
-              curPos += 1;
-              $($(".item")[curPos]).toggleClass("active")
-              $($(".step")[curPos]).toggleClass("active-step")
-              $(".active").fadeIn(800);
-          }
-          if (curPos == 4) {
-              $(".next")[0].setAttribute("disabled", 'true')
-          }
-      }
-      function init() {
-          $(".item").hide()
-          $(".active").show()
-          $(".prev").click(prev)
-          $(".next").click(next)
-      }
-      $(document).ready(function () {
-          init();
-      })
-
   
-
-
-
-
-
-
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
