@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        .user-pro{
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+        }
+        li{
+            display: flex;
+        }
+        .user-reply{
+            display: inline-grid;
+            align-content: space-evenly;
+        }
+        .user-nick{
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul class="comments">
+        <li>
+            <img src="resources/image2/bono.jpg" class="user-pro">
+            <div class="user-reply">
+                <span class="user-nick">닉네임(아이디)</span>
+                <span class="reply">댓글내용</span>
+            </div>
+        </li>
+
+    </ul>
+    
+    <input type="text" class="post">
+    <button class="submit" onclick="enterComment();">전송</button>
+    <!--댓글 input창에 엔터를 치거나, 게시를 누르면 댓글이추가되도록-->
+   
+   <script>
+       
+        const commentInput = document.getElementsByClassName("post")[0];
+        const submit = document.getElementsByClassName("submit")[0];
+
+        /*댓글생성*/
+        function enterComment() {
+            /*클래스 comments로 지정했던 ul*/
+            const [comments] = document.getElementsByClassName("comments");
+
+            /*comments에 새롭게 올라가게 될 li*/
+            const newComment = document.createElement("li");
+
+            /*사용자 미니프로필이 올라가게 될 형식*/
+            const overSizePro = newComment.querySelector(".img");
+            const userPro = document.createElement("img");
+
+            overSizePro.appendChild(userPro);
+            userPro.setAttribute("src", "resources/image2/bono.jpg");
+
+            /*작성한 comment가 올라가게될 형식*/
+            const comment ='<span class="user-nick">userId</span>'+$(commentInput).val()+'<button calss="delete">x</button>';
+
+            newComment.innerHTML = comment;
+            comments.appendChild(newComment);
+            commentInput.value="";
+
+
+
+            /*댓글 삭제*/
+            const deleteComment = newComment.getElementsByClassName("delete");
+            deleteComment.addEventListener('click', () => {
+                newComment.remove();
+            })
+
+        }
+
+        
+    </script>
+
+</body>
+</html>
