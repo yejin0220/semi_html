@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색항목</title>
+    <style>
+        div{
+            border: 1px solid black;
+            background: lightgray;
+            padding: 15px;
+            display:none; 
+        }
+
+        /* #category, #category2{
+            background: lightgray;
+            padding: 15px;
+            display:none; 
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div class="content_4">
+        <button type="button" id="button1">작성글(0)</button>
+        <button type="button" id="button2" style="margin: -5px;">작성댓글(0)</button>
+        <button type="button" id="button3">찜목록(0)</button>
+        <button type="button" id="button4" style="margin: -5px;">채팅(0)</button>
+        <button type="button" id="button5">산책메이트(0)</button><br>
+        
+        <form id="free_main" action="" method="post">
+            <table align="" border="0" >
+                <thead id="thead">
+                    <tr>
+                        <th style="width: 120px;">글번호</th>
+                        <th style="width: 600px;">제목</th>
+                        <th style="width: 150px;">작성자</th>
+                        <th style="width: 180px;">날짜</th>
+                        <th style="width: 100px;">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="#">첫번째 게시글 제목</a></td>
+                        <td>작성자1</td>
+                        <td>2023-03-20</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="#">두번째 게시글 제목</a></td>
+                        <td>작성자2</td>
+                        <td>2023-03-19</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="#">세번째 게시글 제목</a></td>
+                        <td>작성자3</td>
+                        <td>2023-03-18</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><a href="#">네번째 게시글 제목</a></td>
+                        <td>작성자4</td>
+                        <td>2023-03-17</td>
+                        <td>40</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div> -->
+
+    
+        <input type="button" value="작성글(0)" name="category" id="writing">
+        <input type="button" value="작성댓글(0)" name="category" id="comment">
+        <!-- <input type="button" value="찜목록(0)" name="wishlist" id="writter">
+        <input type="button" value="채팅(0)" name="chatting" id="writter">
+        <input type="button" value="산책메이트(0)" name="runningmate" id="writter"> -->
+    <br>
+
+    <!-- <div id="category">
+        <form id="free_main1" action="" method="post">
+            <table align="" border="1" >
+                <thead id="thead1">
+                    <tr>
+                        <th style="width: 120px;">글번호</th>
+                        <th style="width: 600px;">제목</th>
+                        <th style="width: 150px;">작성자</th>
+                        <th style="width: 180px;">날짜</th>
+                        <th style="width: 100px;">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="#">첫번째 게시글 제목</a></td>
+                        <td>작성자1</td>
+                        <td>2023-03-20</td>
+                        <td>10</td>
+                    </tr>
+    </div> -->
+
+    <!-- <div id="category2">
+        <form id="free_main2" action="" method="post">
+            <table align="" border="1" >
+                <thead id="thead2">
+                    <tr>
+                        <th style="width: 120px;">글번호</th>
+                        <th style="width: 600px;">제목</th>
+                        <th style="width: 150px;">작성자</th>
+                        <th style="width: 180px;">날짜</th>
+                        <th style="width: 100px;">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="#">첫번째 게시글 제목</a></td>
+                        <td>작성자1</td>
+                        <td>2023-03-20</td>
+                        <td>10</td>
+                        <td width="">아직 등록된 게시글이 없습니다</td>
+                    </tr>
+    </div> -->
+    
+    <div>
+        검색할 날짜를 선택하세요 : <br>
+        <input type="date"> - <input type="date"> <button type="button">검색</button>
+    </div>
+
+    <script>
+        let categorys = document.getElementsByName('category');//[radio, radio, radio]
+        let divs      = document.getElementsByTagName('div'); // [div, div, div]
+
+        categorys.forEach(function(item, index){
+            item.addEventListener('change',function(){
+                
+                for(let e of divs){
+                    e.style.display = "none";
+                }
+                
+                if(this.id == 'writing'){
+                    divs[0].style.display = 'block';
+                }else if(this.id == 'comment'){
+                    divs[1].style.display = 'block';
+                }else{
+                    divs[2].style.display = 'block';
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

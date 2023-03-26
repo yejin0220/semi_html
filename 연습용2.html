@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <title>카테고리 연습2</title>
+    <style>
+        div{
+            border: 1px solid black;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="button" class="button" value="작성글(0)" name="category" id="writing" onclick="click();">
+    <input type="button" class="button" value="작성댓글(0)" name="category" id="comment" onclick="click();">
+
+    <div>
+        게시글 목록이 나와야 한다.
+    </div>
+
+    <div>
+        댓글 목록이 나와야 한다.
+    </div>
+
+    <script>
+    
+        $(function(){
+            let categorys = document.getElementsByName("category");
+            let divs      = document.getElementsByTagName("div");
+            
+            $(".button").click(function(){
+                
+        
+                categorys.forEach(function(item, index){
+                    item.addEventListener("change",function(){
+                        for(let e of divs){
+                            e.style.display="none";
+                        }
+        
+                        if(this.id == "writing"){
+                            divs[0].style.display = "block";
+                        }else{
+                            divs[1].style.display = "block";
+                        }
+                    })
+        
+        
+        
+                })
+            })    
+        })
+
+       
+
+
+
+    </script>
+
+
+</body>
+</html>
