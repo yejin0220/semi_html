@@ -5,167 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link href="resources/css/02_mateWrite.css" rel="stylesheet">
     <title>Document</title>
-    <style>
-      .wrap{
-        /* position: relative; */
-        width: 100%;
-        height: 100%;
-      }
-      .content_name{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .content2{
-        line-height: 2;
-        text-align: center;
-      }
-      .walk-write{
-        /* position: absolute; */
-        margin: 0 auto;
-        border: 1px solid black;
-        width: 70%;
-      
-        left: 13.5%;
-      }
-      .walk-name{
-        border: 1px solid red;
-        width: 95%;
-        display: inline-flex;
-        margin : 8px 0px 0px 12px;
-      }
-      .content3{
-        display: flex;
-        justify-content: space-around;
-    }
-    .location{
-        display: flex;
-    }
-    .search1, .search2{
-       height: 1.5rem;
-       border-radius: 7px;
-       border: 1px solid lightblue;
-    }
-      .write-content, .write-location, .write-picture{
-        border: 1px solid blue;
-        width: 95%;
-        height: 13rem;
-        margin: 0 auto;
-      }
-
-      img{
-        margin-top: 20px;
-      }
-     .btn-div{
-      display: flex;
-      justify-content: center;
-      margin-top: 30px;
-     }
-     .btn-upload{
-        margin-right: 50px;
-     }
-
-     /*사진보여주기 style*/
-     #walk-picture {
-            position: relative;
-        }
-
-        .items {
-            border: 0px solid red;
-            margin: 0 auto;
-            width: 85%;
-            height: 450px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .item {
-            height: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            display: none;
-        }
-
-        .active {
-            display: flex;
-            height: 600px;
-            width: 900px;
-            color: white;
-            position: relative;
-        }
-        .btn-pic,
-        .prev:active,
-        .prev:focus,
-        .next:active,
-        .next:focus {
-            position: absolute;
-            top: 45%;
-            transform: translateY(-50%);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            border: none;
-            background-color: white;
-            box-shadow: 0px 0px 3px rgb(209, 202, 202);
-            outline: none;
-            cursor: pointer;
-        }
-
-        .next {
-            right: 150px;
-            background-image: url(resources/img/KakaoTalk_20230320_141959451.png);
-            background-size: 20px;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            
-        }
-        .prev{
-            left: 150px;
-            background-image: url(resources/img/KakaoTalk_20230320_141959518.png);
-            background-size: 20px;
-            background-repeat: no-repeat;
-            background-position: 50% 50%;
-            z-index: 1;
-        }
-        .stepper {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .step {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgb(218, 214, 214);
-            margin: 0 6px;
-        }
-
-        .active-step {
-            background-color: darkgray;
-        }
-
-        .active>div {
-            width: 35%;
-            height: 55%;
-            margin: 15px
-        }
-
-        .picture{
-            border: 1px solid black;
-            border-radius: 30px;
-            background-image: url(resources/image2/animal1.gif);
-            background-repeat: no-repeat;
-            background-size: contain;
-            width: 150px;
-            height: 300px;
-        }
-
-    </style>
 </head>
 <body>
     <div class="wrap">
@@ -224,7 +65,11 @@
 
             <img src="resources/img/메이트소개글쓰기.png" height="45">
             <div class="write-content">
-  
+              <p>&nbsp; 산책로 지역:  <input type="text" name="walk-palce" size="50" placeholder="주요 산책로를 입력해주세요"> </p>
+              <p>&nbsp; 반려동물 종류 :  <input type="text" name="pet" size="40" placeholder="산책을 함께하는 반려동물의 종류를 입력해주세요"> </p>
+              <p>&nbsp; 한 줄 소개글 : <input type="text" name="walk-info" size="50" placeholder="산책메이트를 위한 한 줄 소개글을 입력해주세요"></p>
+              <p>&nbsp; 유의사항</p>
+              <textarea class="walk" cols="202" rows="8" style="resize:none;"></textarea>
             </div>
 
             <img src="resources/img/메이트 위치 정하기.png" height="48">
@@ -237,9 +82,7 @@
               <div class="prev btn-pic"></div>
               <div class="items">
                   <div class="item active">
-                      <div class="picture">
-                          
-                      </div>
+                      <div class="picture"></div>
                       <div class="picture"></div>
                       <div class="picture"></div>
                   </div>
